@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-#include <stirng>
+#include <string>
 using namespace std;
 class Solution
 {
