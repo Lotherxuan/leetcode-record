@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-/* 递归
+/* 递归,暴力法
 class Solution
 {
 public:
