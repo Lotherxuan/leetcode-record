@@ -5,6 +5,8 @@
  */
 #include <vector>
 using namespace std;
+
+//可以进一步优化空间复杂度
 // @lc code=start
 class Solution {
  public:
@@ -15,10 +17,18 @@ class Solution {
     dp[0][0] = grid[0][0];
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
-        if (i == 0) {
+        if (!i && !j) {
+          continue;
+        } else if (i == 0) {
+          dp[i][j] = dp[i][j - 1] + grid[i][j];
+        } else if (j == 0) {
+          dp[i][j] = dp[i - 1][j] + grid[i][j];
+        } else {
+          dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
         }
       }
     }
+    return dp[m - 1][n - 1];
   }
 };
 // @lc code=end
