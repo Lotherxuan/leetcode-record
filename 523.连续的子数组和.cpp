@@ -37,6 +37,7 @@ class Solution {
 
       return res;
     } */
+    //没有完全靠自己写出来，建议再写一次
   bool checkSubarraySum(vector<int>& nums, int k) {
     if (nums.size() < 2) {
       return false;
