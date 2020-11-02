@@ -6,10 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
-    int findLength(vector<int>& A, vector<int>& B) {
-
-    }
+ public:
+  int findLength(vector<int>& A, vector<int>& B) {}
 };
 // @lc code=end
-
