@@ -5,11 +5,9 @@
  */
 
 // @lc code=start
+#include <string>
 class Solution {
-public:
-    string convert(string s, int numRows) {
-        
-    }
+ public:
+  string convert(string s, int numRows) {}
 };
 // @lc code=end
-
