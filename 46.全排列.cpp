@@ -4,6 +4,7 @@
  * [46] 全排列
  */
 
+#include <algorithm>
 #include <vector>
 using namespace std;
 // @lc code=start
@@ -31,6 +32,25 @@ using namespace std;
 //深度优先回溯搜索
 class Solution {
  public:
-  vector<vector<int>> permute(vector<int>& nums) {}
+  vector<vector<int>> permute(vector<int>& nums) {
+    vector<int> track;
+    vector<vector<int>> res;
+    backtrace(nums, track, res);
+    return res;
+  }
+  void backtrace(vector<int>& nums, vector<int>& track,
+                 vector<vector<int>>& res) {
+    if (track.size() == nums.size()) {
+      res.push_back(track);
+    } else {
+      for (auto num : nums) {
+        if (find(track.begin(), track.end(), num) == track.end()) {
+          track.push_back(num);
+          backtrace(nums, track, res);
+          track.pop_back();
+        }
+      }
+    }
+  }
 };
 // @lc code=end
