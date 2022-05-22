@@ -32,7 +32,6 @@ class Solution {
     TreeNode* right = lowestCommonAncestor(root->right, p, q);
     if (!left) {
       return right;
-
     } else if (!right) {
       return left;
     } else {
