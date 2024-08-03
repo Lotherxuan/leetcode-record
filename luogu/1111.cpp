@@ -8,6 +8,7 @@ struct node {
   int y;
   int t;
 };
+// 在并查集中查找x
 int find(vector<int> &union_set, int x) {
   if (union_set[x] == x) {
     return x;
@@ -16,6 +17,8 @@ int find(vector<int> &union_set, int x) {
     return union_set[x];
   }
 }
+// 按秩合并x和y所在的并查集 传入的length用于记录并查集的秩
+// 返回值表示x和y在合并前是否在同一并查集
 bool union_set(vector<int> &union_set, vector<int> &length, int x, int y) {
   int xx = find(union_set, x);
   int yy = find(union_set, y);
@@ -52,8 +55,10 @@ int main() {
   int remain_count = N;
   for (auto &operation : operations) {
     if (union_set(union_find, union_length, operation.x, operation.y)) {
+      // 这里并查集表示的是已经联通的节点 如果不在这个并查集中就说明还没联通
       remain_count--;
       if (remain_count == 1) {
+        // 如果最后剩余节点等于1，说明所有节点都联通了
         cout << operation.t << endl;
         break;
       }
